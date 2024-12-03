@@ -7,7 +7,10 @@ public class EmailHandler : INotificationHandler<ProductAddedNotification>
 {
     private readonly FakeDataStore _fakeDataStore;
 
-    public EmailHandler(FakeDataStore fakeDataStore) => _fakeDataStore = fakeDataStore;
+    public EmailHandler(FakeDataStore fakeDataStore)
+    {
+        _fakeDataStore = fakeDataStore;
+    }
 
     public async Task Handle(ProductAddedNotification notification, CancellationToken cancellationToken)
     {
@@ -15,3 +18,6 @@ public class EmailHandler : INotificationHandler<ProductAddedNotification>
         await Task.CompletedTask;
     }
 }
+
+
+//Amaç: Ürün eklendiğinde, ilgili birimlere email göndermek.

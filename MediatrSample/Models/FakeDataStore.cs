@@ -26,13 +26,13 @@ public class FakeDataStore
         return await Task.FromResult(_products);
     }
 
+
+    public async Task<Product> GetProductById(int id) =>
+    await Task.FromResult(_products.Single(p => p.Id == id));
+
     public async Task EventOccured(Product product, string evt)
     {
         _products.Single(p => p.Id == product.Id).Name = $"{product.Name} evt: {evt}";
         await Task.CompletedTask;
     }
-
-    public async Task<Product> GetProductById(int id) =>
-    await Task.FromResult(_products.Single(p => p.Id == id));
-
 }

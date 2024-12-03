@@ -13,8 +13,10 @@ public class GetProductsHandler : IRequestHandler<GetProductsQuery, IEnumerable<
         _fakeDataStore = fakeDataStore;
     }
 
-    public async Task<IEnumerable<Product>> Handle(GetProductsQuery request,
-        CancellationToken cancellationToken) => await _fakeDataStore.GetAllProducts();
+    public async Task<IEnumerable<Product>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
+    {
+        return await _fakeDataStore.GetAllProducts(); // Tüm ürünleri alır.
+    }
 }
 
 
@@ -22,3 +24,8 @@ public class GetProductsHandler : IRequestHandler<GetProductsQuery, IEnumerable<
 /*IRequestHandler<GetProductsQuery, IEnumerable<Product>> ‘den türettiğimiz GetProductsHandler isimli bir sınıf oluşturduk.
  *Yani bu sınıf GetProductsQuery isteğini işleyecek ve geriye product listesi dönecek demektir.
 GetProductsHandler sınıfı içerisinde yalnızca FakeDataStore içerisindeki product'ları getirenHandle methodunu implement ediyoruz.*/
+
+/*Amaç: GetProductsQuery isteğini işlemek.
+Handle metodu:
+request: Gönderilen sorgu isteği.
+FakeDataStore.GetAllProducts(): Tüm ürünleri alır.*/

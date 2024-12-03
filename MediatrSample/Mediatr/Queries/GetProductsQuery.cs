@@ -5,4 +5,6 @@ namespace MediatrSample.Mediatr.Queries;
 
 public record GetProductsQuery() : IRequest<IEnumerable<Product>>;
 
-//Buradaki GetProductsQuery isimli record IRequest<IEnumerable<Product>> interface’ini implement ediyor. Bunun anlamı, bu request product listesi geriye dönecek demektir.
+
+/*Amaç: Ürün listesini getirmek için bir sorgu tanımlamak.
+İşleyici: GetProductsHandler.*/

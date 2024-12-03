@@ -7,7 +7,10 @@ public class CacheInvalidationHandler : INotificationHandler<ProductAddedNotific
 {
     private readonly FakeDataStore _fakeDataStore;
 
-    public CacheInvalidationHandler(FakeDataStore fakeDataStore) => _fakeDataStore = fakeDataStore;
+    public CacheInvalidationHandler(FakeDataStore fakeDataStore)
+    {
+        _fakeDataStore = fakeDataStore;
+    }
 
     public async Task Handle(ProductAddedNotification notification, CancellationToken cancellationToken)
     {
